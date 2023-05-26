@@ -6,7 +6,64 @@
     <title>Simple Marquee Plugin Demo</title>
     <script type="module" defer src="./src/app.ts"></script>
   </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1000px;
+      padding: 0 15px;
+      margin: 0 auto;
+    }
+
+    .vertical-demo .container{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 50px;
+    }
+
+    .vertical-demo .images {
+      display: flex;
+      justify-content: space-between;
+      height: 50vh;
+    }
+
+  </style>
   <body>
-    
+
+    <section class="vertical-demo">
+      <h1>Verticle Demo</h1>
+      <div class="container">
+        <div class="images">
+          <div class="marquee-up">
+            <h1 style=" height: 100px; background-color: red">hello</h1>
+            <h1 style=" height: 100px; background-color: green">world</h1>
+          </div>
+          <div class="marquee-down">
+            <h1 style=" height: 100px; background-color: green">world</h1>
+          </div>
+        </div>
+        <div class="content"></div>
+      </div>
+    </section>
+   
+    <section class="horizontal-demo">
+      <h1>Horizontal Demo</h1>
+      <div class="container">
+        <div class="images">
+          <div class="marquee-right">
+            <h1 style=" height: 100px; background-color: red">hello</h1>
+          </div>
+          <div class="marquee-left">
+            <h1 style=" height: 100px; background-color: red">hello</h1>
+          </div>
+        </div>
+        <div class="content"></div>
+      </div>
+    </section>
+
+
   </body>
 </html>

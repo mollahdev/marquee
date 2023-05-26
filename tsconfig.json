@@ -1,22 +1,30 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "lib": ["es2017", "es7", "es6", "dom"],
+    "target": "esnext",
+    "module": "esnext",
+    "lib": ["esnext", "dom"],
     "useDefineForClassFields": true,
     "skipLibCheck": true,
 
     /* Bundler mode */
     "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
+    "moduleResolution": "node",
     "isolatedModules": true,
     "noEmit": true,
 
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
+    "noUncheckedIndexedAccess": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "experimentalDecorators": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": [
+        "*"
+      ]
+    }
   },
   "include": ["src"]
 }

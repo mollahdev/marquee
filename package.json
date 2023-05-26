@@ -4,7 +4,14 @@
   "author": "Ashraf Mollah <mollah.dev@gmail.com> (https://mollah.dev)",
   "description": "A Simple JavaScript Marquee Package",
   "license": "ISC",
-  "keywords": ["marquee", "animation", "mollah", "simple", "ashraf", "package"],
+  "keywords": [
+    "marquee",
+    "animation",
+    "mollah",
+    "simple",
+    "ashraf",
+    "package"
+  ],
   "email": "mollah.dev@gmail.com",
   "main": "./dist/app.umd.cjs",
   "module": "./dist/app.js",

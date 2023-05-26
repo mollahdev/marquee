@@ -10,5 +10,10 @@ export default defineConfig({
       fileName: 'app',
     },
   },
+  resolve:{
+    alias:{
+      '@' : resolve(__dirname, './src')
+    },
+  },
   plugins: [dts()],
 });
