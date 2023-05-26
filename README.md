@@ -4,6 +4,8 @@
 
 Simple Marquee is available as an [npm package](https://www.npmjs.com/package/@mollahdev/marquee).
 
+### Package [DEMO](https://mollahdev.github.io/marquee/).
+
 **npm:**
 
 ```sh
@@ -14,11 +16,7 @@ npm i @mollahdev/marquee
 
 ```jsx
 import Marquee from '@mollahdev/marquee'
-/**
- * Marquee class
- * @param {1} string must be a html selector
- * @param {2} object configure the plugin output
- */ 
+
 new Marquee( '.marquee-up', { 
     direction: 'up', // 'up' | 'down' | 'left' | 'right'
     duration: 30 // number
