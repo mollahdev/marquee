@@ -46,5 +46,4 @@ new Marquee( '.marquee-up', {
         <img src="./images/wordpress.webp" />
     </picture>
 </div>
-`)
 ```
