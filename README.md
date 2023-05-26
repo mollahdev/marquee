@@ -1,6 +1,6 @@
 ## Installation
 
-### Simple Marquee
+# Simple Marquee
 
 Simple Marquee is available as an [npm package](https://www.npmjs.com/package/@mollahdev/marquee).
 
@@ -26,7 +26,7 @@ new Marquee( '.marquee-up', {
 
 ## HTML Markup
 ```jsx
-<div class="marquee-down">
+<div class="marquee-up">
     <picture>
         <img src="./images/ecwid.webp" />
     </picture>
