@@ -4,12 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simple Marquee Plugin Demo</title>
-    <script type="module" defer src="./src/app.ts"></script>
   </head>
   <style>
     * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+      font-family: arial;
     }
 
     .container {
@@ -18,52 +19,241 @@
       margin: 0 auto;
     }
 
-    .vertical-demo .container{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      column-gap: 50px;
+    picture {
+      width: 160px;
+      height: 160px;
+      min-height: 160px;
+      min-width: 160px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 35px;
+      border: 1px solid #eee;
+      margin: 10px;
+      background-color: #fff;
+      border-radius: 8px;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    h1 {
+      font-size: 50px;
+      margin-bottom: 20px;
+    }
+
+    pre {
+      background-color: rgb(36, 36, 36);
+      color: #fff;
+      font-size: 20px;
+      padding: 30px;
+      border-radius: 8px;
+      line-height: 30px;
+      font-family: "Courier New", Courier, monospace;
+    }
+
+    .vertical-demo, .horizontal-demo {
+      background-color: #eee;
+    }
+
+    .horizontal-demo {
+      padding: 80px 0;
+    }
+
+    .horizontal-demo .container {
+      padding: 50px 0;
+    }
+
+    .vertical-demo .container {
+      display: flex;
+      column-gap: 80px;
+      align-items: center;
     }
 
     .vertical-demo .images {
       display: flex;
-      justify-content: space-between;
-      height: 50vh;
+      column-gap: 10px;
+      height: 100vh;
+      max-height: 1000px;
+    }
+
+    .horizontal-demo .marquee-clone {
+      display: flex;
     }
 
   </style>
   <body>
-
     <section class="vertical-demo">
-      <h1>Verticle Demo</h1>
       <div class="container">
         <div class="images">
           <div class="marquee-up">
-            <h1 style=" height: 100px; background-color: red">hello</h1>
-            <h1 style=" height: 100px; background-color: green">world</h1>
+            <picture>
+              <img src="./images/ecwid.webp" />
+            </picture>
+            <picture>
+              <img src="./images/emoji.webp" />
+            </picture>
+            <picture>
+              <img src="./images/shopify.webp" />
+            </picture>
+            <picture>
+              <img src="./images/webflow.webp" />
+            </picture>
+            <picture>
+              <img src="./images/wix.webp" />
+            </picture>
+            <picture>
+              <img src="./images/wordpress.webp" />
+            </picture>
           </div>
+          <!--end of .marquee-up-->
           <div class="marquee-down">
-            <h1 style=" height: 100px; background-color: green">world</h1>
+            <picture>
+              <img src="./images/ecwid.webp" />
+            </picture>
+            <picture>
+              <img src="./images/emoji.webp" />
+            </picture>
+            <picture>
+              <img src="./images/shopify.webp" />
+            </picture>
+            <picture>
+              <img src="./images/webflow.webp" />
+            </picture>
+            <picture>
+              <img src="./images/wix.webp" />
+            </picture>
+            <picture>
+              <img src="./images/wordpress.webp" />
+            </picture>
           </div>
+          <!--end of .marquee-down-->
         </div>
-        <div class="content"></div>
+        <div class="content">
+          <h1>Vertical Demo</h1>
+          <code>
+            <pre>
+  // up direction
+  new Marquee( '.marquee-up',{ 
+    direction: 'up', 
+    duration: 20 
+  })
+
+  // down direction
+  new Marquee( '.marquee-down', { 
+    direction: 'down', 
+    duration: 40 
+  })
+</pre>
+          </code>
+        </div>
       </div>
     </section>
-   
-    <section class="horizontal-demo">
-      <h1>Horizontal Demo</h1>
+
+    <section style="padding: 80px 0">
       <div class="container">
-        <div class="images">
-          <div class="marquee-right">
-            <h1 style=" height: 100px; background-color: red">hello</h1>
-          </div>
-          <div class="marquee-left">
-            <h1 style=" height: 100px; background-color: red">hello</h1>
-          </div>
-        </div>
-        <div class="content"></div>
+        <h1>HTML Markup</h1>
+        <code>
+          <pre>
+&lt;div class="marquee-up"&gt;
+  &lt;picture&gt;
+    &lt;img src="./images/ecwid.webp" /&gt;
+  &lt;/picture&gt;
+  &lt;picture&gt;
+    &lt;img src="./images/emoji.webp" /&gt;
+  &lt;/picture&gt;
+  &lt;picture&gt;
+    &lt;img src="./images/shopify.webp" /&gt;
+  &lt;/picture&gt;
+  &lt;picture&gt;
+  &lt;img src="./images/webflow.webp" /&gt;
+  &lt;/picture&gt;
+&lt;/div&gt;
+</pre
+          >
+        </code>
       </div>
     </section>
 
+    <section class="horizontal-demo">
+      <div class="marquee-right">
+        <picture>
+          <img src="./images/ecwid.webp" />
+        </picture>
+        <picture>
+          <img src="./images/emoji.webp" />
+        </picture>
+        <picture>
+          <img src="./images/shopify.webp" />
+        </picture>
+        <picture>
+          <img src="./images/webflow.webp" />
+        </picture>
+        <picture>
+          <img src="./images/wix.webp" />
+        </picture>
+        <picture>
+          <img src="./images/wordpress.webp" />
+        </picture>
+      </div>
 
+      <div class="container">
+        <h1>Horizontal Demo</h1>
+<code>
+<pre>
+
+// you might need to apply css flex to .marquee-clone class;
+.marquee-clone {
+  display: flex;
+  align-items: center;
+}
+
+// up direction
+new Marquee( '.marquee-right', { 
+  direction: 'right', 
+  duration: 20 
+})
+
+// down direction
+new Marquee( '.marquee-left', { 
+  direction: 'left', 
+  duration: 40 
+})
+</pre>
+        </code>
+      </div>
+      <div class="marquee-left">
+        <picture>
+          <img src="./images/ecwid.webp" />
+        </picture>
+        <picture>
+          <img src="./images/emoji.webp" />
+        </picture>
+        <picture>
+          <img src="./images/shopify.webp" />
+        </picture>
+        <picture>
+          <img src="./images/webflow.webp" />
+        </picture>
+        <picture>
+          <img src="./images/wix.webp" />
+        </picture>
+        <picture>
+          <img src="./images/wordpress.webp" />
+        </picture>
+      </div>
+    </section>
+
+    <script type="module">
+      import Marquee from './dist/app.js'
+
+      new Marquee( '.marquee-up', { direction: 'up', duration: 20 })
+      new Marquee( '.marquee-down', { direction: 'down', duration: 40 })
+      new Marquee( '.marquee-right', { direction: 'right', duration: 20 })
+      new Marquee( '.marquee-left', { direction: 'left', duration: 40 })
+
+    </script>
   </body>
 </html>

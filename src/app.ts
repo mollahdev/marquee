@@ -2,8 +2,8 @@ import { Base } from "@/base";
 import { Config, AppInterface } from "@/types";
 import { ValidateDirection } from "@/decorators";
 
-class App extends Base implements AppInterface {
-    constructor( scope: HTMLElement, config: Config ) {
+class App<T extends HTMLElement> extends Base<T> implements AppInterface {
+    constructor( scope: T, config: Config ) {
         super( scope, config );
         this.changeExistingMarkup();
         this.vertical();
@@ -61,7 +61,7 @@ class App extends Base implements AppInterface {
         );
     }
         
-    moveElement( delta : number ) {
+    private moveElement( delta : number ) {
         if( !this.config || !this.scope || !this.mover) return;
 
         let string = '0';
@@ -108,10 +108,11 @@ class Marquee {
         } satisfies Config
 
         if( typeof selector === 'string' ) {
-            const scopes = document.querySelectorAll( selector )!
+            const scopes = document.querySelectorAll( selector )! as NodeListOf<HTMLElement>;
+            
             scopes.forEach( (scope) => {
                 new App( 
-                    scope as HTMLElement, 
+                    scope, 
                     Object.assign( defaultConfig, config  ) 
                 )
             } )
@@ -119,10 +120,4 @@ class Marquee {
     }
 }
 
-window.Marquee = Marquee;
 export default Marquee;
-
-new window.Marquee( '.marquee-up', { direction: 'up', duration: 30 })
-new window.Marquee( '.marquee-down', { direction: 'down', duration: 30 })
-new window.Marquee( '.marquee-right', { direction: 'right', duration: 30 })
-new window.Marquee( '.marquee-left', { direction: 'left', duration: 30 })

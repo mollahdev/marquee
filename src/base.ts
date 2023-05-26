@@ -1,6 +1,6 @@
 import { Config, TagAttributes } from "@/types"
 
-export class Base {
+export class Base<T extends HTMLElement> {
     start: number
     size: number
     visibleArea: number
@@ -11,7 +11,7 @@ export class Base {
     item?: HTMLElement
     className?: string
 
-    constructor( public scope: HTMLElement, public config: Config ) {
+    constructor( public scope: T, public config: Config ) {
         this.start = performance.now()
         this.size = 0;
         this.visibleArea = 0;
@@ -23,26 +23,22 @@ export class Base {
         return this.config?.duration! * 1000
     }
 
-    private wrapInner<T extends HTMLElement>( 
+    private wrapInner( 
         parent: T, 
         tagName: string, 
         attributes: TagAttributes 
-    ): T 
+    ): T
     {
-        if( typeof tagName === 'string' ) {
-            const wrapper = document.createElement(tagName);
-            const element = parent.appendChild( wrapper );
-            for( let key in attributes ) {
-                element.setAttribute( key, attributes[(key as keyof TagAttributes)] )
-            }
-            while (parent.firstChild !== wrapper) {
-                wrapper.appendChild(parent.firstChild!);
-            }
-    
-            return element as T;
+        const wrapper = document.createElement(tagName);
+        const element = parent.appendChild( wrapper );
+        for( let key in attributes ) {
+            element.setAttribute( key, attributes[(key as keyof TagAttributes)] )
         }
-    
-        return parent;
+        while (parent.firstChild !== wrapper) {
+            wrapper.appendChild(parent.firstChild!);
+        }
+
+        return element as T;
     }
 
     protected changeExistingMarkup() {

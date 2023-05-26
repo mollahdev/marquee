@@ -1,4 +1,3 @@
-import { MarqueeInterface } from "@/types"
 import Marquee from "@/app"
 
 declare global {
